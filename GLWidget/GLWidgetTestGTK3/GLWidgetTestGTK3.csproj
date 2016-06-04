@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{52CC842F-FEFF-4F88-99FA-58D24DDBF9CF}</ProjectGuid>
+    <ProjectGuid>{227DE1F9-A40A-440A-9A06-4AA5532DBA17}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>GLWidgetTestGTK3</RootNamespace>
     <StartupObject>GLWidgetTestGTK3.MainClass</StartupObject>
@@ -65,12 +65,19 @@
     </MonoDevelop>
   </ProjectExtensions>
   <ItemGroup>
-    <ProjectReference Include="..\GLWidget-GTK3\GLWidgetGTK3.csproj">
-      <Project>{34627299-AB51-4C99-B5DA-C03EB751B387}</Project>
+    <ProjectReference Include="..\GLWidgetGTK3\GLWidgetGTK3.csproj">
+      <Project>{47B57CB3-1885-462D-84DA-FBA0AE356F2A}</Project>
       <Name>GLWidgetGTK3</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="interfaces\MainWindow.glade" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Shaders" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Shaders\FragmentShader.glsl" />
+    <EmbeddedResource Include="Shaders\VertexShader.glsl" />
   </ItemGroup>
 </Project>

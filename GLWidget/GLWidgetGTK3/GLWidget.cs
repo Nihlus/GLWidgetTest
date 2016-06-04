@@ -6,7 +6,7 @@
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights to 
+// in the Software without restriction, including without limitation the rights to
 // use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
 // the Software, and to permit persons to whom the Software is furnished to do
 // so, subject to the following conditions:
@@ -34,20 +34,19 @@ using System.ComponentModel;
 
 using OpenTK.Graphics;
 using OpenTK.Platform;
-using OpenTK;
 
 using Gtk;
 
 namespace OpenTK
 {
 	[ToolboxItem(true)]
-	public class GLWidget: DrawingArea, IDisposable
+	public class GLWidget: DrawingArea
 	{
 
 		#region Static attrs.
 
 		static int _GraphicsContextCount;
-		static bool _SharedContextInitialized = false;
+		static bool _SharedContextInitialized;
 
 		#endregion
 
@@ -55,8 +54,7 @@ namespace OpenTK
 
 		IGraphicsContext _GraphicsContext;
 		IWindowInfo _WindowInfo;
-		GraphicsContextFlags _GraphicsContextFlags;
-		bool _Initialized = false;
+		bool _Initialized;
 
 		#endregion
 
@@ -85,14 +83,14 @@ namespace OpenTK
 		public bool Stereo { get; set; }
 
 		/// <summary>The major version of OpenGL to use.</summary>
-		public int GlVersionMajor { get; set; }
+		public int GLVersionMajor { get; set; }
 
 		/// <summary>The minor version of OpenGL to use.</summary>
-		public int GlVersionMinor { get; set; }
+		public int GLVersionMinor { get; set; }
 
 		public GraphicsContextFlags GraphicsContextFlags
 		{
-			get; 
+			get;
 			set;
 		}
 
@@ -103,13 +101,13 @@ namespace OpenTK
 		/// <summary>Constructs a new GLWidget.</summary>
 		public GLWidget()
 			: this(GraphicsMode.Default)
-		{ 
+		{
 		}
 
 		/// <summary>Constructs a new GLWidget using a given GraphicsMode</summary>
 		public GLWidget(GraphicsMode graphicsMode)
 			: this(graphicsMode, 1, 0, GraphicsContextFlags.Default)
-		{ 
+		{
 		}
 
 		/// <summary>Constructs a new GLWidget</summary>
@@ -125,14 +123,14 @@ namespace OpenTK
 			Samples = graphicsMode.Samples;
 			Stereo = graphicsMode.Stereo;
 
-			GlVersionMajor = glVersionMajor;
-			GlVersionMinor = glVersionMinor;
+			GLVersionMajor = glVersionMajor;
+			GLVersionMinor = glVersionMinor;
 			GraphicsContextFlags = graphicsContextFlags;
 		}
 
 		~GLWidget()
-		{ 
-			Dispose(false); 
+		{
+			Dispose(false);
 		}
 
 		#if GTK3
@@ -177,43 +175,43 @@ namespace OpenTK
 		static void OnGraphicsContextInitialized()
 		{
 			if (GraphicsContextInitialized != null)
-				GraphicsContextInitialized(null, EventArgs.Empty); 
+				GraphicsContextInitialized(null, EventArgs.Empty);
 		}
 
 		// Called when the first GraphicsContext is being destroyed in the case of GraphicsContext.ShareContexts == True;
 		public static event EventHandler GraphicsContextShuttingDown;
 
 		static void OnGraphicsContextShuttingDown()
-		{ 
+		{
 			if (GraphicsContextShuttingDown != null)
-				GraphicsContextShuttingDown(null, EventArgs.Empty); 
+				GraphicsContextShuttingDown(null, EventArgs.Empty);
 		}
 
 		// Called when this GLWidget has a valid GraphicsContext
 		public event EventHandler Initialized;
 
 		protected virtual void OnInitialized()
-		{ 
+		{
 			if (Initialized != null)
-				Initialized(this, EventArgs.Empty); 
+				Initialized(this, EventArgs.Empty);
 		}
 
 		// Called when this GLWidget needs to render a frame
 		public event EventHandler RenderFrame;
 
 		protected virtual void OnRenderFrame()
-		{ 
+		{
 			if (RenderFrame != null)
-				RenderFrame(this, EventArgs.Empty); 
+				RenderFrame(this, EventArgs.Empty);
 		}
 
 		// Called when this GLWidget is being Disposed
 		public event EventHandler ShuttingDown;
 
 		protected virtual void OnShuttingDown()
-		{ 
+		{
 			if (ShuttingDown != null)
-				ShuttingDown(this, EventArgs.Empty); 
+				ShuttingDown(this, EventArgs.Empty);
 		}
 
 		#endregion
@@ -301,7 +299,7 @@ namespace OpenTK
 				_WindowInfo = InitializeX(graphicsMode);
 
 			// GraphicsContext
-			_GraphicsContext = new GraphicsContext(graphicsMode, _WindowInfo, GlVersionMajor, GlVersionMinor, _GraphicsContextFlags);
+			_GraphicsContext = new GraphicsContext(graphicsMode, _WindowInfo, GLVersionMajor, GLVersionMinor, GraphicsContextFlags);
 			_GraphicsContext.MakeCurrent(_WindowInfo);
 
 			if (GraphicsContext.ShareContexts)
@@ -340,7 +338,7 @@ namespace OpenTK
 		#region OSX Specific Initialization
 
 		IWindowInfo InitializeOSX()
-		{			
+		{
 			IntPtr windowHandle = gdk_quartz_window_get_nswindow(this.Window.Handle);
 			//IntPtr viewHandle = gdk_quartz_window_get_nsview(this.GdkWindow.Handle);
 			return Utilities.CreateMacOSCarbonWindowInfo(windowHandle, true, true);
@@ -358,10 +356,10 @@ namespace OpenTK
 
 		#if GTK3
 		const string UnixLibGdkName = "libgdk-3.so.0";
-
 		#else
 		const string UnixLibGdkName = "libgdk-x11-2.0.so.0";
 		#endif
+
 		const string UnixLibX11Name = "libX11.so.6";
 		const string UnixLibGLName = "libGL.so.1";
 

@@ -1,6 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////
 // Gtk GLWidget Sharp - Gtk OpenGL Widget for CSharp using OpenTK
-////////////////////////////////////////////////////////////////////////////////
 /*
 Usage:
 	To render either override OnRenderFrame() or hook to the RenderFrame event.
@@ -15,7 +13,6 @@ Usage:
 		GLWidget.Initialized
 		GLWidget.ShuttingDown 
 */
-////////////////////////////////////////////////////////////////////////////////
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Platform;
@@ -40,7 +37,7 @@ namespace Gtk
 
 		/// <summary>Color Buffer Bits-Per-Pixel</summary>
 		public int ColorBPP { get; set; }
-		
+
 		/// <summary>Accumulation Buffer Bits-Per-Pixel</summary>
 		public int AccumulatorBPP { get; set; }
 
@@ -66,16 +63,23 @@ namespace Gtk
 
 		public GraphicsContextFlags GraphicsContextFlags
 		{
-			get { return graphicsContextFlags; }
-			set { graphicsContextFlags = value; }
+			get;
+			set;
 		}
+
 		GraphicsContextFlags graphicsContextFlags;
 
 		/// <summary>Constructs a new GLWidget.</summary>
-		public GLWidget() : this(GraphicsMode.Default) { }
+		public GLWidget()
+			: this(GraphicsMode.Default)
+		{
+		}
 
 		/// <summary>Constructs a new GLWidget using a given GraphicsMode</summary>
-		public GLWidget(GraphicsMode graphicsMode) : this(graphicsMode, 1, 0, GraphicsContextFlags.Default) { }
+		public GLWidget(GraphicsMode graphicsMode)
+			: this(graphicsMode, 1, 0, GraphicsContextFlags.Default)
+		{
+		}
 
 		/// <summary>Constructs a new GLWidget</summary>
 		public GLWidget(GraphicsMode graphicsMode, int glVersionMajor, int glVersionMinor, GraphicsContextFlags graphicsContextFlags)
@@ -95,7 +99,10 @@ namespace Gtk
 			GraphicsContextFlags = graphicsContextFlags;
 		}
 
-		~GLWidget() { Dispose(false); }
+		~GLWidget()
+		{
+			Dispose(false);
+		}
 
 		public override void Dispose()
 		{
@@ -121,29 +128,54 @@ namespace Gtk
 
 		// Called when the first GraphicsContext is created in the case of GraphicsContext.ShareContexts == True;
 		public static event EventHandler GraphicsContextInitialized;
-		static void OnGraphicsContextInitialized() { if (GraphicsContextInitialized != null) GraphicsContextInitialized(null, EventArgs.Empty); }
+
+		static void OnGraphicsContextInitialized()
+		{
+			if (GraphicsContextInitialized != null)
+				GraphicsContextInitialized(null, EventArgs.Empty);
+		}
 
 		// Called when the first GraphicsContext is being destroyed in the case of GraphicsContext.ShareContexts == True;
 		public static event EventHandler GraphicsContextShuttingDown;
-		static void OnGraphicsContextShuttingDown() { if (GraphicsContextShuttingDown != null) GraphicsContextShuttingDown(null, EventArgs.Empty); }
+
+		static void OnGraphicsContextShuttingDown()
+		{
+			if (GraphicsContextShuttingDown != null)
+				GraphicsContextShuttingDown(null, EventArgs.Empty);
+		}
 
 		// Called when this GLWidget has a valid GraphicsContext
 		public event EventHandler Initialized;
-		protected virtual void OnInitialized() { if (Initialized != null) Initialized(this, EventArgs.Empty); }
+
+		protected virtual void OnInitialized()
+		{
+			if (Initialized != null)
+				Initialized(this, EventArgs.Empty);
+		}
 
 		// Called when this GLWidget needs to render a frame
 		public event EventHandler RenderFrame;
-		protected virtual void OnRenderFrame() { if (RenderFrame != null) RenderFrame(this, EventArgs.Empty); }
+
+		protected virtual void OnRenderFrame()
+		{
+			if (RenderFrame != null)
+				RenderFrame(this, EventArgs.Empty);
+		}
 
 		// Called when this GLWidget is being Disposed
 		public event EventHandler ShuttingDown;
-		protected virtual void OnShuttingDown() { if (ShuttingDown != null) ShuttingDown(this, EventArgs.Empty); }
+
+		protected virtual void OnShuttingDown()
+		{
+			if (ShuttingDown != null)
+				ShuttingDown(this, EventArgs.Empty);
+		}
 
 		// Called when a widget is realized. (window handles and such are valid)
 		// protected override void OnRealized() { base.OnRealized(); }
 
-		static bool sharedContextInitialized = false;
-		bool initialized = false;
+		static bool sharedContextInitialized;
+		bool initialized;
 
 		// Called when the widget needs to be (fully or partially) redrawn.
 		protected override bool OnExposeEvent(Gdk.EventExpose eventExpose)
@@ -153,11 +185,12 @@ namespace Gtk
 				initialized = true;
 
 				// If this looks uninitialized...  initialize.
-				if( ColorBPP == 0 )
+				if (ColorBPP == 0)
 				{
 					ColorBPP = 32;
 					
-					if( DepthBPP == 0 ) DepthBPP = 16;
+					if (DepthBPP == 0)
+						DepthBPP = 16;
 				}
 				
 				ColorFormat colorBufferColorFormat = new ColorFormat(ColorBPP);
@@ -165,7 +198,8 @@ namespace Gtk
 				ColorFormat accumulationColorFormat = new ColorFormat(AccumulatorBPP);
 				
 				int buffers = 2;
-				if( SingleBuffer ) buffers--;
+				if (SingleBuffer)
+					buffers--;
 				
 				GraphicsMode graphicsMode = new GraphicsMode(colorBufferColorFormat, DepthBPP, StencilBPP, Samples, accumulationColorFormat, buffers, Stereo);
 
@@ -173,14 +207,14 @@ namespace Gtk
 				if (Configuration.RunningOnWindows)
 				{
 					IntPtr windowHandle = gdk_win32_drawable_get_handle(GdkWindow.Handle);
-					windowInfo = OpenTK.Platform.Utilities.CreateWindowsWindowInfo(windowHandle);
+					windowInfo = Utilities.CreateWindowsWindowInfo(windowHandle);
 				}
 				else if (Configuration.RunningOnMacOS)
 				{
 					IntPtr windowHandle = gdk_x11_drawable_get_xid(GdkWindow.Handle);
-					bool ownHandle = true;
-					bool isControl = true;
-					windowInfo = OpenTK.Platform.Utilities.CreateMacOSCarbonWindowInfo(windowHandle, ownHandle, isControl);
+					const bool ownHandle = true;
+					const bool isControl = true;
+					windowInfo = Utilities.CreateMacOSCarbonWindowInfo(windowHandle, ownHandle, isControl);
 				}
 				else if (Configuration.RunningOnX11)
 				{
@@ -202,10 +236,13 @@ namespace Gtk
 						visualInfo = GetVisualInfo(display);
 					}
 
-					windowInfo = OpenTK.Platform.Utilities.CreateX11WindowInfo(display, screen, windowHandle, rootWindow, visualInfo);
+					windowInfo = Utilities.CreateX11WindowInfo(display, screen, windowHandle, rootWindow, visualInfo);
 					XFree(visualInfo);
 				}
-				else throw new PlatformNotSupportedException();
+				else
+				{
+					throw new PlatformNotSupportedException();
+				}
 
 				// GraphicsContext
 				graphicsContext = new GraphicsContext(graphicsMode, windowInfo, GlVersionMajor, GlVersionMinor, graphicsContextFlags);
@@ -246,14 +283,15 @@ namespace Gtk
 		protected override bool OnConfigureEvent(Gdk.EventConfigure evnt)
 		{
 			bool result = base.OnConfigureEvent(evnt);
-			if (graphicsContext != null) graphicsContext.Update(windowInfo);
+			if (graphicsContext != null)
+				graphicsContext.Update(windowInfo);
 			return result;
 		}
 
 		[SuppressUnmanagedCodeSecurity, DllImport("libgdk-win32-2.0-0.dll")]
 		public static extern IntPtr gdk_win32_drawable_get_handle(IntPtr d);
 
-		public enum XVisualClass : int
+		public enum XVisualClass
 		{
 			StaticGray = 0,
 			GrayScale = 1,
@@ -302,6 +340,7 @@ namespace Gtk
 
 		[DllImport("libX11", EntryPoint = "XGetVisualInfo")]
 		static extern IntPtr XGetVisualInfoInternal(IntPtr display, IntPtr vinfo_mask, ref XVisualInfo template, out int nitems);
+
 		static IntPtr XGetVisualInfo(IntPtr display, XVisualInfoMask vinfo_mask, ref XVisualInfo template, out int nitems)
 		{
 			return XGetVisualInfoInternal(display, (IntPtr)(int)vinfo_mask, ref template, out nitems);
@@ -372,21 +411,23 @@ namespace Gtk
 
 				attributeList.Add(GLX_RGBA);
 
-				if (!SingleBuffer) attributeList.Add(GLX_DOUBLEBUFFER);
+				if (!SingleBuffer)
+					attributeList.Add(GLX_DOUBLEBUFFER);
 
-				if (Stereo) attributeList.Add(GLX_STEREO);
+				if (Stereo)
+					attributeList.Add(GLX_STEREO);
 
 				attributeList.Add(GLX_RED_SIZE);
-				attributeList.Add(ColorBPP/4); // TODO support 16-bit
+				attributeList.Add(ColorBPP / 4); // TODO support 16-bit
 
 				attributeList.Add(GLX_GREEN_SIZE);
-				attributeList.Add(ColorBPP/4); // TODO support 16-bit
+				attributeList.Add(ColorBPP / 4); // TODO support 16-bit
 
 				attributeList.Add(GLX_BLUE_SIZE);
-				attributeList.Add(ColorBPP/4); // TODO support 16-bit
+				attributeList.Add(ColorBPP / 4); // TODO support 16-bit
 
 				attributeList.Add(GLX_ALPHA_SIZE);
-				attributeList.Add(ColorBPP/4); // TODO support 16-bit
+				attributeList.Add(ColorBPP / 4); // TODO support 16-bit
 
 				attributeList.Add(GLX_DEPTH_SIZE);
 				attributeList.Add(DepthBPP);
@@ -398,16 +439,16 @@ namespace Gtk
 				//attributeList.Add(Buffers);
 
 				attributeList.Add(GLX_ACCUM_RED_SIZE);
-				attributeList.Add(AccumulatorBPP/4);// TODO support 16-bit
+				attributeList.Add(AccumulatorBPP / 4);// TODO support 16-bit
 
 				attributeList.Add(GLX_ACCUM_GREEN_SIZE);
-				attributeList.Add(AccumulatorBPP/4);// TODO support 16-bit
+				attributeList.Add(AccumulatorBPP / 4);// TODO support 16-bit
 
 				attributeList.Add(GLX_ACCUM_BLUE_SIZE);
-				attributeList.Add(AccumulatorBPP/4);// TODO support 16-bit
+				attributeList.Add(AccumulatorBPP / 4);// TODO support 16-bit
 
 				attributeList.Add(GLX_ACCUM_ALPHA_SIZE);
-				attributeList.Add(AccumulatorBPP/4);// TODO support 16-bit
+				attributeList.Add(AccumulatorBPP / 4);// TODO support 16-bit
 
 				attributeList.Add(GLX_NONE);
 
