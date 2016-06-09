@@ -172,7 +172,7 @@ namespace OpenTK
 		// Called when the first GraphicsContext is created in the case of GraphicsContext.ShareContexts == True;
 		public static event EventHandler GraphicsContextInitialized;
 
-		static void OnGraphicsContextInitialized()
+		private static void OnGraphicsContextInitialized()
 		{
 			if (GraphicsContextInitialized != null)
 				GraphicsContextInitialized(null, EventArgs.Empty);
@@ -181,7 +181,7 @@ namespace OpenTK
 		// Called when the first GraphicsContext is being destroyed in the case of GraphicsContext.ShareContexts == True;
 		public static event EventHandler GraphicsContextShuttingDown;
 
-		static void OnGraphicsContextShuttingDown()
+		private static void OnGraphicsContextShuttingDown()
 		{
 			if (GraphicsContextShuttingDown != null)
 				GraphicsContextShuttingDown(null, EventArgs.Empty);
@@ -233,7 +233,7 @@ namespace OpenTK
 				_GraphicsContext.MakeCurrent(_WindowInfo);
 
 #if GTK3
-			var result = base.OnDrawn(cr);
+			bool result = base.OnDrawn(cr);
 #else
 			bool result = base.OnExposeEvent(evnt);
 #endif
@@ -260,7 +260,7 @@ namespace OpenTK
 			return result;
 		}
 
-		void Initialize()
+		private void Initialize()
 		{
 			_Initialized = true;
 
@@ -408,8 +408,7 @@ namespace OpenTK
 
 			public override string ToString()
 			{
-				return String.Format("id ({0}), screen ({1}), depth ({2}), class ({3})",
-					VisualID, Screen, Depth, Class);
+				return $"id ({VisualID}), screen ({Screen}), depth ({Depth}), class ({Class})";
 			}
 		}
 
@@ -429,7 +428,7 @@ namespace OpenTK
 			All = 0x1FF,
 		}
 
-		IWindowInfo InitializeX(GraphicsMode mode)
+		private IWindowInfo InitializeX(GraphicsMode mode)
 		{
 			IntPtr display = gdk_x11_display_get_xdisplay(Display.Handle);
 			int screen = Screen.Number;
@@ -440,8 +439,6 @@ namespace OpenTK
 			IntPtr windowHandle = gdk_x11_drawable_get_xid(GdkWindow.Handle);
 			IntPtr rootWindow = gdk_x11_drawable_get_xid(RootWindow.Handle);
 #endif
-			IWindowInfo retval;
-
 			IntPtr visualInfo;
 			if (mode.Index.HasValue)
 			{
@@ -453,18 +450,18 @@ namespace OpenTK
 			else
 				visualInfo = GetVisualInfo(display);
 
-			retval = Utilities.CreateX11WindowInfo(display, screen, windowHandle, rootWindow, visualInfo);
+			IWindowInfo retval = Utilities.CreateX11WindowInfo(display, screen, windowHandle, rootWindow, visualInfo);
 			XFree(visualInfo);
 
 			return retval;
 		}
 
-		static IntPtr XGetVisualInfo(IntPtr display, XVisualInfoMask vinfo_mask, ref XVisualInfo template, out int nitems)
+		private static IntPtr XGetVisualInfo(IntPtr display, XVisualInfoMask vinfo_mask, ref XVisualInfo template, out int nitems)
 		{
 			return XGetVisualInfoInternal(display, (IntPtr)(int)vinfo_mask, ref template, out nitems);
 		}
 
-		IntPtr GetVisualInfo(IntPtr display)
+		private IntPtr GetVisualInfo(IntPtr display)
 		{
 			try
 			{
@@ -481,7 +478,7 @@ namespace OpenTK
 			}
 		}
 
-		List<int> AttributeList
+		private List<int> AttributeList
 		{
 			get
 			{
@@ -535,34 +532,34 @@ namespace OpenTK
 		}
 
 		[DllImport(UnixLibX11Name, EntryPoint = "XGetVisualInfo")]
-		static extern IntPtr XGetVisualInfoInternal(IntPtr display, IntPtr vinfo_mask, ref XVisualInfo template, out int nitems);
+		private static extern IntPtr XGetVisualInfoInternal(IntPtr display, IntPtr vinfo_mask, ref XVisualInfo template, out int nitems);
 
 		[SuppressUnmanagedCodeSecurity, DllImport(UnixLibX11Name)]
-		static extern void XFree(IntPtr handle);
+		private static extern void XFree(IntPtr handle);
 
 		/// <summary> Returns the X resource (window or pixmap) belonging to a GdkDrawable. </summary>
 		/// <remarks> XID gdk_x11_drawable_get_xid(GdkDrawable *drawable); </remarks>
 		/// <param name="gdkDisplay"> The GdkDrawable. </param>
 		/// <returns> The ID of drawable's X resource. </returns>
 		[SuppressUnmanagedCodeSecurity, DllImport(UnixLibGdkName)]
-		static extern IntPtr gdk_x11_drawable_get_xid(IntPtr gdkDisplay);
+		private static extern IntPtr gdk_x11_drawable_get_xid(IntPtr gdkDisplay);
 
 		/// <summary> Returns the X resource (window or pixmap) belonging to a GdkDrawable. </summary>
 		/// <remarks> XID gdk_x11_drawable_get_xid(GdkDrawable *drawable); </remarks>
 		/// <param name="gdkDisplay"> The GdkDrawable. </param>
 		/// <returns> The ID of drawable's X resource. </returns>
 		[SuppressUnmanagedCodeSecurity, DllImport(UnixLibGdkName)]
-		static extern IntPtr gdk_x11_window_get_xid(IntPtr gdkDisplay);
+		private static extern IntPtr gdk_x11_window_get_xid(IntPtr gdkDisplay);
 
 		/// <summary> Returns the X display of a GdkDisplay. </summary>
 		/// <remarks> Display* gdk_x11_display_get_xdisplay(GdkDisplay *display); </remarks>
 		/// <param name="gdkDisplay"> The GdkDrawable. </param>
 		/// <returns> The X Display of the GdkDisplay. </returns>
 		[SuppressUnmanagedCodeSecurity, DllImport(UnixLibGdkName)]
-		static extern IntPtr gdk_x11_display_get_xdisplay(IntPtr gdkDisplay);
+		private static extern IntPtr gdk_x11_display_get_xdisplay(IntPtr gdkDisplay);
 
 		[SuppressUnmanagedCodeSecurity, DllImport(UnixLibGLName)]
-		static extern IntPtr glXChooseVisual(IntPtr display, int screen, int[] attr);
+		private static extern IntPtr glXChooseVisual(IntPtr display, int screen, int[] attr);
 
 		#endregion
 

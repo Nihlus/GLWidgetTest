@@ -1,5 +1,5 @@
 ﻿//
-//  EmptyClass.cs
+//  MainWindow.cs
 //
 //  Author:
 //       Jarl Gullberg <jarl.gullberg@gmail.com>
@@ -19,11 +19,16 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
+
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using Gdk;
+using GLWidgetTestGTK3.Data;
+using GLWidgetTestGTK3.Debug;
+using GLWidgetTestGTK3.World;
 using Gtk;
 using UI = Gtk.Builder.ObjectAttribute;
 using OpenTK;
@@ -35,17 +40,17 @@ namespace GLWidgetTestGTK3
 {
 	public partial class MainWindow : Gtk.Window
 	{
-		[UI] Box MainBox;
-		[UI] MenuBar MainMenuBar;
+		[UI] readonly Box MainBox;
+		[UI] readonly MenuBar MainMenuBar;
 
-		[UI] Alignment GLWidgetAlignment;
-		[UI] GLWidget MainGLWidget;
+		[UI] readonly Alignment GLWidgetAlignment;
+		[UI] readonly GLWidget MainGLWidget;
 
 		private bool GLInit;
 
+		private Scene Scene;
+
 		private uint VertexArrayID;
-		private uint CubeVertexBufferID;
-		private uint TriangleVertexBufferID;
 		private uint ColourBufferID;
 
 		private int ShaderProgramID;
@@ -60,67 +65,20 @@ namespace GLWidgetTestGTK3
 		private Vector3 cameraUpVector;
 		private float horizontalViewAngle;
 		private float verticalViewAngle;
-		private float defaultFOV = 45.0f;
+		private const float defaultFOV = 45.0f;
 
-		private float defaultMovementSpeed = 10.0f;
-		private float defaultCameraSpeed = 0.5f;
+		private const float defaultMovementSpeed = 10.0f;
+		private const float defaultCameraSpeed = 0.5f;
 
 		// Other variables
 		private bool wantsToMove = false;
-		private float deltaTime = 0.0f;
+		private float deltaTime;
 
-		private int mouseXLastFrame = 0;
-		private int mouseYLastFrame = 0;
+		private int mouseXLastFrame;
+		private int mouseYLastFrame;
 
-		private float rightAxis = 0.0f;
-		private float forwardAxis = 0.0f;
-
-		private static readonly float[] triangleVertexBufferData =
-		{
-			-1.0f, -1.0f, 0.0f,
-			1.0f, -1.0f, 0.0f,
-			0.0f, 1.0f, 0.0f
-		};
-
-		private static readonly float[] cubeVertexBufferData =
-		{
-			-1.0f,-1.0f,-1.0f, // triangle 1 : begin
-			-1.0f,-1.0f, 1.0f,
-			-1.0f, 1.0f, 1.0f, // triangle 1 : end
-			1.0f, 1.0f,-1.0f, // triangle 2 : begin
-			-1.0f,-1.0f,-1.0f,
-			-1.0f, 1.0f,-1.0f, // triangle 2 : end
-			1.0f,-1.0f, 1.0f,
-			-1.0f,-1.0f,-1.0f,
-			1.0f,-1.0f,-1.0f,
-			1.0f, 1.0f,-1.0f,
-			1.0f,-1.0f,-1.0f,
-			-1.0f,-1.0f,-1.0f,
-			-1.0f,-1.0f,-1.0f,
-			-1.0f, 1.0f, 1.0f,
-			-1.0f, 1.0f,-1.0f,
-			1.0f,-1.0f, 1.0f,
-			-1.0f,-1.0f, 1.0f,
-			-1.0f,-1.0f,-1.0f,
-			-1.0f, 1.0f, 1.0f,
-			-1.0f,-1.0f, 1.0f,
-			1.0f,-1.0f, 1.0f,
-			1.0f, 1.0f, 1.0f,
-			1.0f,-1.0f,-1.0f,
-			1.0f, 1.0f,-1.0f,
-			1.0f,-1.0f,-1.0f,
-			1.0f, 1.0f, 1.0f,
-			1.0f,-1.0f, 1.0f,
-			1.0f, 1.0f, 1.0f,
-			1.0f, 1.0f,-1.0f,
-			-1.0f, 1.0f,-1.0f,
-			1.0f, 1.0f, 1.0f,
-			-1.0f, 1.0f,-1.0f,
-			-1.0f, 1.0f, 1.0f,
-			1.0f, 1.0f, 1.0f,
-			-1.0f, 1.0f, 1.0f,
-			1.0f,-1.0f, 1.0f
-		};
+		private float rightAxis;
+		private float forwardAxis;
 
 		private static readonly float[] cubeColourBufferData =
 		{
@@ -177,20 +135,29 @@ namespace GLWidgetTestGTK3
 			this.GLInit = false;
 			ResetCamera();
 
-			this.MainGLWidget = new GLWidget(GraphicsMode.Default, 3, 3, GraphicsContextFlags.Default);
-			this.MainGLWidget.CanFocus = true;
+			this.MainGLWidget = new GLWidget(GraphicsMode.Default)
+			{
+				CanFocus = true,
+				SingleBuffer = false,
+				ColorBPP = 32,
+				DepthBPP = 16,
+				Samples = 4,
+				GLVersionMajor = 3,
+				GLVersionMinor = 3,
+				GraphicsContextFlags = GraphicsContextFlags.Default
+			};
+
 			this.MainGLWidget.Events |=
 				EventMask.ButtonPressMask |
 				EventMask.ButtonReleaseMask |
 				EventMask.KeyPressMask |
 				EventMask.KeyReleaseMask;
 
-			this.MainGLWidget.Initialized += OnGLWidgetInitialized;
-			this.MainGLWidget.ButtonPressEvent += OnGLWidgetButtonPressed;
-			this.MainGLWidget.ButtonReleaseEvent += OnGLWidgetButtonReleased;
-			this.MainGLWidget.KeyPressEvent += OnGLWidgetKeyPressed;
-			this.MainGLWidget.KeyReleaseEvent += OnGLWidgetKeyReleased;
-			this.MainGLWidget.Samples = 4;
+			this.MainGLWidget.Initialized += OnViewportInitialized;
+			this.MainGLWidget.ButtonPressEvent += OnViewportButtonPressed;
+			this.MainGLWidget.ButtonReleaseEvent += OnViewportButtonReleased;
+			this.MainGLWidget.KeyPressEvent += OnViewportKeyPressed;
+			this.MainGLWidget.KeyReleaseEvent += OnViewportKeyReleased;
 
 			// Add the GL widget to the UI
 			this.GLWidgetAlignment.Add(this.MainGLWidget);
@@ -198,7 +165,27 @@ namespace GLWidgetTestGTK3
 
 		}
 
-		private void OnGLWidgetKeyReleased(object o, KeyReleaseEventArgs args)
+		private List<Vertex> FloatArrayToVertexList(float[] vertexPositions)
+		{
+			if ((vertexPositions.Length % 3) != 0)
+			{
+				throw new ArgumentException("The input array must be of a 3-multiple length. Incomplete entries are not allowed.", nameof(vertexPositions));
+			}
+
+			List<Vertex> convertedVertices = new List<Vertex>();
+
+			for (int i = 0; i < vertexPositions.Length; i += 3)
+			{
+				Vector3 Position = new Vector3(vertexPositions[i], vertexPositions[i + 1], vertexPositions[i + 2]);
+				Vertex vertex = new Vertex(Position);
+
+				convertedVertices.Add(vertex);
+			}
+
+			return convertedVertices;
+		}
+
+		private void OnViewportKeyReleased(object o, KeyReleaseEventArgs args)
 		{
 			if (args.Event.Type == EventType.KeyRelease)
 			{
@@ -222,7 +209,7 @@ namespace GLWidgetTestGTK3
 			}
 		}
 
-		private void OnGLWidgetKeyPressed(object o, KeyPressEventArgs args)
+		private void OnViewportKeyPressed(object o, KeyPressEventArgs args)
 		{
 			if (args.Event.Type == EventType.KeyPress)
 			{
@@ -248,6 +235,11 @@ namespace GLWidgetTestGTK3
 				{
 					ResetCamera();
 				}
+
+				if (args.Event.Key == Gdk.Key.Escape)
+				{
+					Application.Quit();
+				}
 			}
 		}
 
@@ -271,8 +263,9 @@ namespace GLWidgetTestGTK3
 		}
 
 		[GLib.ConnectBefore]
-		private void OnGLWidgetButtonReleased(object o, ButtonReleaseEventArgs args)
+		private void OnViewportButtonReleased(object o, ButtonReleaseEventArgs args)
 		{
+			// Right click is released
 			if (args.Event.Type == EventType.ButtonRelease && args.Event.Button == 3)
 			{
 				// Return the mouse pointer
@@ -284,8 +277,9 @@ namespace GLWidgetTestGTK3
 		}
 
 		[GLib.ConnectBefore]
-		private void OnGLWidgetButtonPressed(object o, ButtonPressEventArgs args)
+		private void OnViewportButtonPressed(object o, ButtonPressEventArgs args)
 		{
+			// Right click is pressed
 			if (args.Event.Type == EventType.ButtonPress && args.Event.Button == 3)
 			{
 				// Hide the mouse pointer
@@ -297,22 +291,32 @@ namespace GLWidgetTestGTK3
 			}
 		}
 
-		protected virtual void OnGLWidgetInitialized(object sender, EventArgs e)
+		protected virtual void OnViewportInitialized(object sender, EventArgs e)
 		{
-			GL.GenVertexArrays(1, out VertexArrayID);
-			GL.BindVertexArray(VertexArrayID);
+			this.Scene = new Scene();
 
-			GL.GenBuffers(1, out CubeVertexBufferID);
-			GL.GenBuffers(1, out TriangleVertexBufferID);
+			// Create the cube actor
+			Actor cubeActor = new Actor(new Mesh(FloatArrayToVertexList(Shapes.UnindexedCube)));
+			Actor cubeActor1 = new Actor(new Mesh(FloatArrayToVertexList(Shapes.UnindexedCube)));
+			Actor cubeActor2 = new Actor(new Mesh(FloatArrayToVertexList(Shapes.UnindexedCube)));
+			Actor cubeActor3 = new Actor(new Mesh(FloatArrayToVertexList(Shapes.UnindexedCube)));
+
+			// Translate the cube actor
+			cubeActor.Transform.Translation = new Vector3(4.0f, 0.0f, 0.0f);
+			cubeActor1.Transform.Translation = new Vector3(0.0f, 4.0f, 0.0f);
+			cubeActor2.Transform.Translation = new Vector3(0.0f, -4.0f, 0.0f);
+			cubeActor3.Transform.Translation = new Vector3(-4.0f, 0.0f, 0.0f);
+
+			Actor triangleActor = new Actor(new Mesh(FloatArrayToVertexList(Shapes.UnindexedTriangle)));
+
+			this.Scene.Actors.Add(cubeActor);
+			this.Scene.Actors.Add(cubeActor1);
+			this.Scene.Actors.Add(cubeActor2);
+			this.Scene.Actors.Add(cubeActor3);
+			this.Scene.Actors.Add(triangleActor);
+
+			// Generate the colour buffer
 			GL.GenBuffers(1, out ColourBufferID);
-
-			// Upload the cube vertices
-			GL.BindBuffer(BufferTarget.ArrayBuffer, CubeVertexBufferID);
-			GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(cubeVertexBufferData.Length * sizeof(float)), cubeVertexBufferData, BufferUsageHint.StaticDraw);
-
-			// Upload the triangle vertices
-			GL.BindBuffer(BufferTarget.ArrayBuffer, TriangleVertexBufferID);
-			GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(triangleVertexBufferData.Length * sizeof(float)), triangleVertexBufferData, BufferUsageHint.StaticDraw);
 
 			// Upload the colour data
 			GL.BindBuffer(BufferTarget.ArrayBuffer, ColourBufferID);
@@ -329,10 +333,10 @@ namespace GLWidgetTestGTK3
 			//GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
 
 			// Initialize the viewport
-			int WidgetWidth = this.GLWidgetAlignment.AllocatedWidth;
-			int WidgetHeight = this.GLWidgetAlignment.AllocatedHeight;
+			int widgetWidth = this.GLWidgetAlignment.AllocatedWidth;
+			int widgetHeight = this.GLWidgetAlignment.AllocatedHeight;
 
-			GL.Viewport(0, 0, WidgetWidth, WidgetHeight);
+			GL.Viewport(0, 0, widgetWidth, widgetHeight);
 			GL.ClearColor(0.522f, 0.573f, 0.678f, 1.0f);
 			GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
@@ -347,14 +351,10 @@ namespace GLWidgetTestGTK3
 
 		protected void RenderFrame()
 		{
-			// Start deltaTime calculation
-			Stopwatch deltaTimeWatcher = new Stopwatch();
-			deltaTimeWatcher.Start();
-
 			// Make sure the viewport is accurate for the current widget size on screen
-			int WidgetWidth = this.GLWidgetAlignment.AllocatedWidth;
-			int WidgetHeight = this.GLWidgetAlignment.AllocatedHeight;
-			GL.Viewport(0, 0, WidgetWidth, WidgetHeight);
+			int widgetWidth = this.GLWidgetAlignment.AllocatedWidth;
+			int widgetHeight = this.GLWidgetAlignment.AllocatedHeight;
+			GL.Viewport(0, 0, widgetWidth, widgetHeight);
 
 			GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
@@ -418,29 +418,14 @@ namespace GLWidgetTestGTK3
 				}
 			}
 
-			// Set the relative view
-			float aspectRatio = (float)WidgetWidth / (float)WidgetHeight;
+			// Calculate the relative viewpoint
+			float aspectRatio = (float)widgetWidth / (float)widgetHeight;
 			Matrix4 Projection = Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(defaultFOV), aspectRatio, 0.1f, 1000.0f);
 			Matrix4 View = Matrix4.LookAt(
 				cameraPosition,
 				cameraPosition + cameraLookDirection,
 				cameraUpVector
 			);
-
-			Vector3 debugCamPos = this.cameraPosition;
-			Vector3 debugCamLook = this.cameraLookDirection;
-			Vector3 debugCamUp = this.cameraUpVector;
-
-			// Enable the vertex array of the cube
-			GL.EnableVertexAttribArray(0);
-			GL.BindBuffer(BufferTarget.ArrayBuffer, CubeVertexBufferID);
-			GL.VertexAttribPointer(
-				0,
-				3,
-				VertexAttribPointerType.Float,
-				false,
-				0,
-				0);
 
 			// Enable the colour array
 			GL.EnableVertexAttribArray(1);
@@ -453,39 +438,15 @@ namespace GLWidgetTestGTK3
 				0,
 				0);
 
-			// Draw the cube
-			Matrix4 cubeModelPosition = Matrix4.CreateTranslation(new Vector3(-1.0f, 0.0f, 0.0f));
-			Matrix4 cubeMVP = cubeModelPosition * View * Projection;
-            GL.UniformMatrix4(MatrixHandle, false, ref cubeMVP);
-			GL.DrawArrays(BeginMode.Triangles, 0, cubeVertexBufferData.Length / 3);
-
-
-			// Enable the vertex array of the triangle
-			GL.EnableVertexAttribArray(0);
-			GL.BindBuffer(BufferTarget.ArrayBuffer, TriangleVertexBufferID);
-			GL.VertexAttribPointer(
-				0,
-				3,
-				VertexAttribPointerType.Float,
-				false,
-				0,
-				0);
-
-			// Draw the triangle
-			Matrix4 triangleModelPosition = Matrix4.CreateTranslation(new Vector3(1.5f, 0.0f, 1.5f));
-			Matrix4 triangleMVP = triangleModelPosition * View * Projection;
-            GL.UniformMatrix4(MatrixHandle, false, ref triangleMVP);
-			GL.DrawArrays(BeginMode.Triangles, 0, triangleVertexBufferData.Length / 3);
+			foreach (Actor actor in this.Scene.Actors)
+			{
+				actor.Render(ShaderProgramID, View, Projection);
+			}
 
 			// Release the arrays
-			GL.DisableVertexAttribArray(0);
 			GL.DisableVertexAttribArray(1);
 
 			GraphicsContext.CurrentContext.SwapBuffers();
-
-			// End delta time calculation
-			deltaTimeWatcher.Stop();
-			this.deltaTime = (float)(deltaTimeWatcher.ElapsedMilliseconds * 0.001f);
 		}
 
 		protected bool OnIdleProcessMain()
@@ -494,7 +455,15 @@ namespace GLWidgetTestGTK3
 				return false;
 			else
 			{
+				// Start deltaTime calculation
+				Stopwatch deltaTimeWatcher = new Stopwatch();
+				deltaTimeWatcher.Start();
+
 				RenderFrame();
+
+				// End delta time calculation
+				deltaTimeWatcher.Stop();
+				this.deltaTime = (float)(deltaTimeWatcher.ElapsedMilliseconds * 0.001f);
 				return true;
 			}
 		}
@@ -503,7 +472,6 @@ namespace GLWidgetTestGTK3
 		{
 			int VertexShaderID = GL.CreateShader(ShaderType.VertexShader);
 			int FragmentShaderID = GL.CreateShader(ShaderType.FragmentShader);
-
 
 			string vertexShaderSourceCode;
 			using (Stream shaderStream =
@@ -578,6 +546,7 @@ namespace GLWidgetTestGTK3
 				Console.WriteLine(compilationLog);
 			}
 
+			// Clean up the shader source code and unlinked object files from graphics memory
 			GL.DetachShader(shaderProgramID, VertexShaderID);
 			GL.DetachShader(shaderProgramID, FragmentShaderID);
 
@@ -592,7 +561,7 @@ namespace GLWidgetTestGTK3
 		/// up the UI, etc.
 		/// </summary>
 		/// <param name="sender">Sender.</param>
-		/// <param name="a">The alpha component.</param>
+		/// <param name="a">The deletion arguments.</param>
 		protected void OnDeleteEvent(object sender, DeleteEventArgs a)
 		{
 			Application.Quit();
