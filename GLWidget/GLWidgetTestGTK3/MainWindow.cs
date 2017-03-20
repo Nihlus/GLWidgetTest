@@ -54,8 +54,6 @@ namespace GLWidgetTestGTK3
 		private uint ColourBufferID;
 
 		private int ShaderProgramID;
-		private int MatrixHandle;
-
 
 		/* Default camera positions */
 		private Vector3 cameraPosition;
@@ -139,8 +137,8 @@ namespace GLWidgetTestGTK3
 			{
 				CanFocus = true,
 				SingleBuffer = false,
-				ColorBPP = 32,
-				DepthBPP = 16,
+				ColorBPP = 24,
+				DepthBPP = 32,
 				Samples = 4,
 				GLVersionMajor = 3,
 				GLVersionMinor = 3,
@@ -233,7 +231,10 @@ namespace GLWidgetTestGTK3
 
 				if( args.Event.Key == Gdk.Key.r || args.Event.Key == Gdk.Key.R)
 				{
-					ResetCamera();
+					if (wantsToMove)
+					{
+						ResetCamera();
+					}
 				}
 
 				if (args.Event.Key == Gdk.Key.Escape)
@@ -324,7 +325,7 @@ namespace GLWidgetTestGTK3
 
 			// Make sure we use the depth buffer when drawing
 			GL.Enable(EnableCap.DepthTest);
-			GL.DepthFunc(DepthFunction.Less);
+			//GL.DepthFunc(DepthFunction.Less);
 
 			// Enable backface culling for performance reasons
 			//GL.Enable(EnableCap.CullFace);
@@ -342,7 +343,6 @@ namespace GLWidgetTestGTK3
 
 			// Load the shaders
             ShaderProgramID = LoadShaders();
-			MatrixHandle = GL.GetUniformLocation(ShaderProgramID, "MVP");
 
 			// Add idle event handler to process rendering whenever and as long as time is available.
 			GLInit = true;
@@ -437,6 +437,9 @@ namespace GLWidgetTestGTK3
 				false,
 				0,
 				0);
+
+			// Tick the actors before any rendering is done
+			this.Scene.Tick(deltaTime);
 
 			foreach (Actor actor in this.Scene.Actors)
 			{

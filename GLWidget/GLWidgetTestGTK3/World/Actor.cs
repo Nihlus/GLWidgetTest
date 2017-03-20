@@ -21,6 +21,7 @@
 //
 
 using System;
+using GLib;
 using GLWidgetTestGTK3.Data;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
@@ -30,8 +31,12 @@ namespace GLWidgetTestGTK3.World
 	public class Actor
 	{
 		public Transform Transform;
-		private Mesh Mesh;
+		private readonly Mesh Mesh;
 
+		/// <summary>
+		/// Creates a new instance of the <see cref="Actor"/> class.
+		/// </summary>
+		/// <param name="Mesh">The mesh bound to the actor.</param>
 		public Actor(Mesh Mesh)
 		{
 			this.Mesh = Mesh;
@@ -39,8 +44,21 @@ namespace GLWidgetTestGTK3.World
 		}
 
 		/// <summary>
+		/// Performs any arbitrary actions needed every frame, such as animations, texture manipulations or state
+		/// updates.
+		/// </summary>
+		/// <param name="deltaTime">The time (in thousands of a second) taken to render the previous frame.</param>
+		public void Tick(float deltaTime)
+		{
+
+		}
+
+		/// <summary>
 		/// Renders this actor within the current OpenGL context.
 		/// </summary>
+		/// <param name="ShaderProgramID">The ID of the currently active shader.</param>
+		/// <param name="ViewMatrix">The camera view matrix, calulcated from the camera position.</param>
+		/// <param name="ProjectionMatrix">The perspective projection currently in use.</param>
 		public void Render(int ShaderProgramID, Matrix4 ViewMatrix, Matrix4 ProjectionMatrix)
         {
 			// Enable the mesh vertex array
@@ -55,21 +73,32 @@ namespace GLWidgetTestGTK3.World
             				0,
             				0);
 
+	        // Enable the normal attributes
+	        GL.EnableVertexAttribArray(3);
+			GL.VertexAttribPointer(
+							2,
+							3,
+							VertexAttribPointerType.Float,
+							false,
+							0,
+							0);
+
 	        Matrix4 modelTranslation = Matrix4.CreateTranslation(Transform.Translation);
 	        Matrix4 modelScale = Matrix4.Scale(Transform.Scale);
 	        Matrix4 modelRotation = Matrix4.Rotate(Transform.Rotation);
 
-	        Matrix4 modelMVP = modelScale *  modelRotation * modelTranslation * ViewMatrix * ProjectionMatrix;
+	        Matrix4 modelViewProjection = modelScale *  modelRotation * modelTranslation * ViewMatrix * ProjectionMatrix;
 
 	        // Send the model matrix to the shader
-	        int MatrixHandle = GL.GetUniformLocation(ShaderProgramID, "MVP");
-	        GL.UniformMatrix4(MatrixHandle, false, ref modelMVP);
+	        int projectionShaderVariableHandle = GL.GetUniformLocation(ShaderProgramID, "ModelViewProjection");
+	        GL.UniformMatrix4(projectionShaderVariableHandle, false, ref modelViewProjection);
 
 	        // Draw the model
 	        GL.DrawArrays(BeginMode.Triangles, 0, Mesh.GetVertexCount());
 
 	        // Release the attribute arrays
 	        GL.DisableVertexAttribArray(0);
+	        GL.DisableVertexAttribArray(3);
         }
 	}
 }

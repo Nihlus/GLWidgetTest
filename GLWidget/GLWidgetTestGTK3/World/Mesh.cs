@@ -22,7 +22,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Net;
 using GLWidgetTestGTK3.Data;
 using OpenTK.Graphics.OpenGL;
 
@@ -38,6 +37,12 @@ namespace GLWidgetTestGTK3.World
 			get { return vertexBufferID; }
 		}
 
+		private int normalBufferID = -1;
+		public int NormalBufferID
+		{
+			get { return normalBufferID; }
+		}
+
 		private bool cullFaces;
 
 		public bool CullFaces
@@ -50,7 +55,8 @@ namespace GLWidgetTestGTK3.World
 		{
 			this.Vertices = Vertices;
 
-			this.vertexBufferID = UploadVertices();
+			this.vertexBufferID = UploadVertexPositions();
+			this.normalBufferID = UploadVertexNormals();
 		}
 
 		public int GetVertexCount()
@@ -58,7 +64,7 @@ namespace GLWidgetTestGTK3.World
 			return Vertices.Count;
 		}
 
-		private int UploadVertices()
+		private int UploadVertexPositions()
 		{
 			if (vertexBufferID > 0)
 			{
@@ -78,6 +84,26 @@ namespace GLWidgetTestGTK3.World
 			return vertexBufferID;
 		}
 
+		private int UploadVertexNormals()
+		{
+			if (normalBufferID > 0)
+			{
+				return normalBufferID;
+			}
+
+			// Generate a buffer
+			GL.GenBuffers(1, out normalBufferID);
+
+			// Get the vertex positions
+			float[] vertexNormals = GetVertexNormals();
+
+			// Upload the vertices to the GPU
+			GL.BindBuffer(BufferTarget.ArrayBuffer, normalBufferID);
+			GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(vertexNormals.Length * sizeof(float)), vertexNormals, BufferUsageHint.StaticDraw);
+
+			return vertexBufferID;
+		}
+
 		private float[] GetVertexPositions()
 		{
 			List<float> vertexPositions = new List<float>();
@@ -90,6 +116,20 @@ namespace GLWidgetTestGTK3.World
 			}
 
 			return vertexPositions.ToArray();
+		}
+
+		private float[] GetVertexNormals()
+		{
+			List<float> vertexNormals = new List<float>();
+
+			foreach (Vertex StoredVertex in Vertices)
+			{
+				vertexNormals.Add(StoredVertex.Normal.X);
+				vertexNormals.Add(StoredVertex.Normal.Y);
+				vertexNormals.Add(StoredVertex.Normal.Z);
+			}
+
+			return vertexNormals.ToArray();
 		}
 	}
 }

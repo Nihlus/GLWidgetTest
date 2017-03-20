@@ -4,21 +4,21 @@
 public partial class MainWindow
 {
 	private global::Gtk.UIManager UIManager;
-	
+
 	private global::Gtk.Action ArchivoAction;
-	
+
 	private global::Gtk.Action AbrirAction;
-	
+
 	private global::Gtk.Action CosaAction;
-	
+
 	private global::Gtk.Action CosaAction1;
-	
+
 	private global::Gtk.Action MenuAction;
-	
+
 	private global::Gtk.VBox vbox3;
-	
+
 	private global::Gtk.MenuBar menubar3;
-	
+
 	private global::Gtk.GLWidget glwidget7;
 
 	protected virtual void Build ()
@@ -65,14 +65,14 @@ public partial class MainWindow
 		this.glwidget7.HeightRequest = 600;
 		this.glwidget7.Name = "glwidget7";
 		this.glwidget7.SingleBuffer = false;
-		this.glwidget7.ColorBPP = 0;
+		this.glwidget7.ColorBPP = 24;
 		this.glwidget7.AccumulatorBPP = 0;
-		this.glwidget7.DepthBPP = 0;
+		this.glwidget7.DepthBPP = 32;
 		this.glwidget7.StencilBPP = 0;
-		this.glwidget7.Samples = 0;
+		this.glwidget7.Samples = 4;
 		this.glwidget7.Stereo = false;
 		this.glwidget7.GlVersionMajor = 3;
-		this.glwidget7.GlVersionMinor = 0;
+		this.glwidget7.GlVersionMinor = 3;
 		this.vbox3.Add (this.glwidget7);
 		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.glwidget7]));
 		w3.Position = 1;

@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{227DE1F9-A40A-440A-9A06-4AA5532DBA17}</ProjectGuid>
@@ -13,7 +13,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <ReleaseVersion>1.1</ReleaseVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,18 +23,19 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="OpenTK, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4">
-      <Package>opentk</Package>
+    <Reference Include="OpenTK, Version=1.2.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4">
+      <HintPath>..\packages\OpenTK.Next.1.2.2336.6514-pre\lib\net20\OpenTK.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
     <Reference Include="gtk-sharp, Version=3.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
       <Package>gtk-sharp-3.0</Package>
     </Reference>
@@ -82,13 +83,11 @@
     <EmbeddedResource Include="interfaces\MainWindow.glade" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data" />
-    <Folder Include="Debug" />
-    <Folder Include="Shaders" />
-    <Folder Include="World" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Shaders\FragmentShader.glsl" />
     <EmbeddedResource Include="Shaders\VertexShader.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OpenTK.dll.config" />
+    <Content Include="packages.config" />
   </ItemGroup>
 </Project>

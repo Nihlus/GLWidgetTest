@@ -41,7 +41,20 @@ namespace GLWidgetTestGTK3.World
 			// Generate the vertex array
 			GL.GenVertexArrays(1, out vertexArrayID);
 			GL.BindVertexArray(VertexArrayID);
+		}
 
+		/// <summary>
+		/// Runs the <see cref="Actor.Tick"/> function on all <see cref="Actor"/> instances
+		/// in the scene. Actors can define arbitrary behaviour in their ticks, but in most
+		/// cases it's used for animation.
+		/// </summary>
+		/// <param name="deltaTime">The time (in thousands of a second) taken to render the previous frame.</param>
+		public void Tick(float deltaTime)
+		{
+			for (int i = 0; i < Actors.Count; ++i)
+			{
+				Actors[i].Tick(deltaTime);
+			}
 		}
 	}
 }

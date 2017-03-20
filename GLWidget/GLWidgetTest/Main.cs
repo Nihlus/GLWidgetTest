@@ -8,7 +8,13 @@ namespace GLWidgetTest
 	{
 		public static void Main(string[] args)
 		{
-			Toolkit.Init();
+			// OpenGL
+			Toolkit.Init(new ToolkitOptions
+			{
+				Backend = PlatformBackend.PreferNative,
+				EnableHighResolution = true
+			});
+
 			Application.Init();
 			MainWindow win = new MainWindow();
 			win.Show();

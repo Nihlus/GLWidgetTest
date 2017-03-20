@@ -9,7 +9,11 @@ namespace GLWidgetTestGTK3
 		public static void Main(string[] args)
 		{
 			// OpenGL
-			Toolkit.Init();
+			Toolkit.Init(new ToolkitOptions
+			{
+				Backend = PlatformBackend.PreferNative,
+				EnableHighResolution = true
+			});
 
 			// GTK
 			Application.Init();

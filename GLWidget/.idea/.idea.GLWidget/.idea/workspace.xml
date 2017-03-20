@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2e394c3b-a823-4642-8f75-0a50086bc242" name="Default" comment="" />
+    <ignored path="GLWidget.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="GLWidget" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="MainWindow.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../GLWidgetTestGTK3/MainWindow.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="130" column="41" selection-start-line="130" selection-start-column="41" selection-end-line="130" selection-end-column="41" />
+              <folding>
+                <marker date="1481999877539" expanded="true" signature="0:786" ph="/* MainWindow.cs ... */" />
+                <marker date="1481999877539" expanded="true" signature="794:1170" ph="..." />
+                <marker date="1481999877539" expanded="true" signature="1198:16956" ph="{...}" />
+                <marker date="1481999877539" expanded="true" signature="1246:16954" ph="{...}" />
+                <marker date="1481999877539" expanded="true" signature="2203:3251" ph="{...}" />
+                <marker date="1481999877539" expanded="true" signature="3289:3466" ph="{...}" />
+                <marker date="1481999877539" expanded="true" signature="3540:4528" ph="{...}" />
+                <marker date="1481999877539" expanded="true" signature="3713:3925" ph="{...}" />
+                <marker date="1481999877539" expanded="true" signature="4600:5140" ph="{...}" />
+                <marker date="1481999877539" expanded="true" signature="5214:5707" ph="{...}" />
+                <marker date="1481999877539" expanded="true" signature="5778:6489" ph="{...}" />
+                <marker date="1481999877539" expanded="true" signature="6519:7237" ph="{...}" />
+                <marker date="1481999877539" expanded="true" signature="7340:7605" ph="{...}" />
+                <marker date="1481999877539" expanded="true" signature="7705:8069" ph="{...}" />
+                <marker date="1481999877539" expanded="true" signature="8145:10336" ph="{...}" />
+                <marker date="1481999877539" expanded="true" signature="9569:9816" ph="/* GL.DepthFunc(DepthFunction.Less); ... */" />
+                <marker date="1481999877539" expanded="true" signature="10368:13489" ph="{...}" />
+                <marker date="1481999877539" expanded="true" signature="13527:13880" ph="{...}" />
+                <marker date="1481999877539" expanded="true" signature="13909:16597" ph="{...}" />
+                <marker date="1481999877539" expanded="true" signature="16601:16835" ph="/// Handles application shutdown procedures - terminating render threads, cleaning ... " />
+                <marker date="1481999877539" expanded="true" signature="16900:16951" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../GLWidgetTest/Main.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding>
+                <marker date="1481999917491" expanded="true" signature="6:38" ph="..." />
+                <marker date="1481999917491" expanded="true" signature="62:373" ph="{...}" />
+                <marker date="1481999917491" expanded="true" signature="81:371" ph="{...}" />
+                <marker date="1481999917491" expanded="true" signature="125:368" ph="{...}" />
+                <marker date="1481999917491" expanded="true" signature="181:263" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainWindow.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../GLWidgetTest/MainWindow.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1335">
+              <caret line="89" column="12" selection-start-line="89" selection-start-column="12" selection-end-line="89" selection-end-column="12" />
+              <folding>
+                <marker date="1481999920243" expanded="true" signature="6:91" ph="..." />
+                <marker date="1481999920243" expanded="true" signature="137:2396" ph="{...}" />
+                <marker date="1481999920243" expanded="true" signature="217:252" ph="{...}" />
+                <marker date="1481999920243" expanded="true" signature="324:1258" ph="{...}" />
+                <marker date="1481999920243" expanded="true" signature="1323:1370" ph="{...}" />
+                <marker date="1481999920243" expanded="true" signature="1402:2269" ph="{...}" />
+                <marker date="1481999920243" expanded="true" signature="2306:2393" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FragmentShader.glsl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../GLWidgetTestGTK3/Shaders/FragmentShader.glsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Program.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../GLWidgetTestGTK3/Program.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="15" selection-end-column="15" />
+              <folding>
+                <marker date="1481999755300" expanded="true" signature="6:38" ph="..." />
+                <marker date="1481999755300" expanded="true" signature="66:390" ph="{...}" />
+                <marker date="1481999755300" expanded="true" signature="85:388" ph="{...}" />
+                <marker date="1481999755300" expanded="true" signature="129:385" ph="{...}" />
+                <marker date="1481999755300" expanded="true" signature="185:267" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/../../GLWidgetTestGTK3/Program.cs" />
+        <option value="$PROJECT_DIR$/../../GLWidgetTestGTK3/MainWindow.cs" />
+        <option value="$PROJECT_DIR$/../../GLWidgetTest/Main.cs" />
+        <option value="$PROJECT_DIR$/../../GLWidgetTest/MainWindow.cs" />
+        <option value="$PROJECT_DIR$/../../GLWidgetTest/gtk-gui/MainWindow.cs" />
+        <option value="$PROJECT_DIR$/../../GLWidgetTestGTK3/Shaders/FragmentShader.glsl" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1440" />
+    <option name="y" value="-1" />
+    <option name="width" value="1920" />
+    <option name="height" value="1055" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="SolutionExplorer">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GLWidget (4 projects)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GLWidgetTestGTK3" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GLWidget (4 projects)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GLWidgetTestGTK3" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Shaders" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GLWidget (4 projects)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GLWidgetTest" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GLWidget (4 projects)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GLWidgetTest" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gtk-gui" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GLWidget (4 projects)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GLWidgetGTK3" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GLWidget (4 projects)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GLWidgetGTK3" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="References" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GLWidget (4 projects)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="RunManager" selected=".NET Project.GLWidgetTestGTK3">
+    <configuration default="false" name="GLWidgetTestGTK3" type="DotNetProject" factoryName=".NET Project" temporary="true">
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/../../GLWidgetTestGTK3/GLWidgetTestGTK3.csproj" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value="Default" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../GLWidgetTestGTK3/bin/Debug/GLWidgetTestGTK3.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../GLWidgetTestGTK3/bin/Debug" />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="GLWidgetTest" type="DotNetProject" factoryName=".NET Project" temporary="true">
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/../../GLWidgetTest/GLWidgetTest.csproj" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value="Default" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../GLWidgetTest/bin/Debug/GLWidgetTest.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../GLWidgetTest/bin/Debug" />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="DotNetProject" factoryName=".NET Project">
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="PROJECT_TFM" value="" />
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="PROJECT_TFM" value="" />
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue=".NET Project.Default" />
+      <item index="1" class="java.lang.String" itemvalue=".NET Project.GLWidgetTestGTK3" />
+      <item index="2" class="java.lang.String" itemvalue=".NET Project.GLWidgetTest" />
+    </list>
+    <recent_temporary>
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue=".NET Project.GLWidgetTestGTK3" />
+        <item index="1" class="java.lang.String" itemvalue=".NET Project.GLWidgetTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2e394c3b-a823-4642-8f75-0a50086bc242" name="Default" comment="" />
+      <created>1478443587341</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1478443587341</updated>
+      <workItem from="1478443588668" duration="75000" />
+      <workItem from="1478693947385" duration="14000" />
+      <workItem from="1481999493451" duration="792000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="881000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1440" y="-1" width="1920" height="1055" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24503312" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="SvgViewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors in solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.196468" sideWeight="0.50213444" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UnitTesting" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1611479" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33076075" sideWeight="0.50426894" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Change Signature" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17929563" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24255788" sideWeight="0.49573106" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33076075" sideWeight="0.49573106" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../../GLWidgetTestGTK3/MainWindow.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1481999877539" expanded="true" signature="0:786" ph="/* MainWindow.cs ... */" />
+            <marker date="1481999877539" expanded="true" signature="794:1170" ph="..." />
+            <marker date="1481999877539" expanded="true" signature="1198:16956" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="1246:16954" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="2203:3251" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="3289:3466" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="3540:4528" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="3713:3925" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="4600:5140" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="5214:5707" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="5778:6489" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="6519:7237" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="7340:7605" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="7705:8069" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="8145:10336" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="9569:9816" ph="/* GL.DepthFunc(DepthFunction.Less); ... */" />
+            <marker date="1481999877539" expanded="true" signature="10368:13489" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="13527:13880" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="13909:16597" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="16601:16835" ph="/// Handles application shutdown procedures - terminating render threads, cleaning ... " />
+            <marker date="1481999877539" expanded="true" signature="16900:16951" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/mono/xbuild/14.0/bin/Microsoft.Common.targets">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="75" selection-start-line="15" selection-start-column="75" selection-end-line="15" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../GLWidgetTestGTK3/MainWindow.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="130" column="41" selection-start-line="130" selection-start-column="41" selection-end-line="130" selection-end-column="41" />
+          <folding>
+            <marker date="1481999877539" expanded="true" signature="0:786" ph="/* MainWindow.cs ... */" />
+            <marker date="1481999877539" expanded="true" signature="794:1170" ph="..." />
+            <marker date="1481999877539" expanded="true" signature="1198:16956" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="1246:16954" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="2203:3251" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="3289:3466" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="3540:4528" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="3713:3925" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="4600:5140" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="5214:5707" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="5778:6489" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="6519:7237" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="7340:7605" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="7705:8069" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="8145:10336" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="9569:9816" ph="/* GL.DepthFunc(DepthFunction.Less); ... */" />
+            <marker date="1481999877539" expanded="true" signature="10368:13489" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="13527:13880" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="13909:16597" ph="{...}" />
+            <marker date="1481999877539" expanded="true" signature="16601:16835" ph="/// Handles application shutdown procedures - terminating render threads, cleaning ... " />
+            <marker date="1481999877539" expanded="true" signature="16900:16951" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../GLWidgetTestGTK3/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="15" selection-end-column="15" />
+          <folding>
+            <marker date="1481999755300" expanded="true" signature="6:38" ph="..." />
+            <marker date="1481999755300" expanded="true" signature="66:390" ph="{...}" />
+            <marker date="1481999755300" expanded="true" signature="85:388" ph="{...}" />
+            <marker date="1481999755300" expanded="true" signature="129:385" ph="{...}" />
+            <marker date="1481999755300" expanded="true" signature="185:267" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../GLWidgetTest/Main.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <marker date="1481999917491" expanded="true" signature="6:38" ph="..." />
+            <marker date="1481999917491" expanded="true" signature="62:373" ph="{...}" />
+            <marker date="1481999917491" expanded="true" signature="81:371" ph="{...}" />
+            <marker date="1481999917491" expanded="true" signature="125:368" ph="{...}" />
+            <marker date="1481999917491" expanded="true" signature="181:263" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../GLWidgetTest/gtk-gui/MainWindow.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="71" column="35" selection-start-line="71" selection-start-column="35" selection-end-line="71" selection-end-column="35" />
+          <folding>
+            <marker date="1481999973815" expanded="true" signature="101:3323" ph="{...}" />
+            <marker date="1481999973815" expanded="true" signature="505:3321" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../GLWidgetTest/MainWindow.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1335">
+          <caret line="89" column="12" selection-start-line="89" selection-start-column="12" selection-end-line="89" selection-end-column="12" />
+          <folding>
+            <marker date="1481999920243" expanded="true" signature="6:91" ph="..." />
+            <marker date="1481999920243" expanded="true" signature="137:2396" ph="{...}" />
+            <marker date="1481999920243" expanded="true" signature="217:252" ph="{...}" />
+            <marker date="1481999920243" expanded="true" signature="324:1258" ph="{...}" />
+            <marker date="1481999920243" expanded="true" signature="1323:1370" ph="{...}" />
+            <marker date="1481999920243" expanded="true" signature="1402:2269" ph="{...}" />
+            <marker date="1481999920243" expanded="true" signature="2306:2393" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../GLWidgetTestGTK3/Shaders/FragmentShader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
