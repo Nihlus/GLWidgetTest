@@ -58,7 +58,7 @@
     <Compile Include="Data\UVCoordinate.cs" />
     <Compile Include="Data\Transform.cs" />
     <Compile Include="Data\Vertex.cs" />
-    <Compile Include="Debug\Shapes.cs" />
+    <Compile Include="Geometry\Shapes.cs" />
     <Compile Include="MainWindow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="World\Actor.cs" />
