@@ -138,7 +138,7 @@ namespace GLWidgetTestGTK3
 				CanFocus = true,
 				SingleBuffer = false,
 				ColorBPP = 24,
-				DepthBPP = 32,
+				DepthBPP = 24,
 				Samples = 4,
 				GLVersionMajor = 3,
 				GLVersionMinor = 3,
