@@ -24,8 +24,8 @@
       <file leaf-file-name="MainWindow.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GLWidgetTestGTK3/MainWindow.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-789">
-              <caret line="460" column="46" lean-forward="true" selection-start-line="460" selection-start-column="46" selection-end-line="460" selection-end-column="46" />
+            <state relative-caret-position="15">
+              <caret line="460" column="46" lean-forward="false" selection-start-line="460" selection-start-column="46" selection-end-line="460" selection-end-column="46" />
               <folding>
                 <marker date="1493659153692" expanded="true" signature="0:786" ph="/* MainWindow.cs ... */" />
                 <marker date="1493659153692" expanded="true" signature="794:1170" ph="..." />
@@ -128,7 +128,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="SolutionExplorer">
         <subPane>
           <PATH>
@@ -145,11 +144,13 @@
         <option name="show-file-system" value="false" />
         <option name="show-all-items" value="false" />
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../file-test-platform/MDXTest.sln" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -305,11 +306,14 @@
       <workItem from="1493145117341" duration="369000" />
       <workItem from="1493658994002" duration="168000" />
       <workItem from="1493659189518" duration="655000" />
+      <workItem from="1493717354610" duration="22000" />
+      <workItem from="1493724142606" duration="19000" />
+      <workItem from="1493727792801" duration="37000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2892000" />
+    <option name="totallyTimeSpent" value="2970000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -333,7 +337,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1611479" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298479" sideWeight="0.5086862" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Change Signature" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19001086" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19652551" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24239543" sideWeight="0.49239957" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -363,6 +367,195 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/GLWidgetTestGTK3/MainWindow.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1493659153692" expanded="true" signature="0:786" ph="/* MainWindow.cs ... */" />
+            <marker date="1493659153692" expanded="true" signature="794:1170" ph="..." />
+            <marker date="1493659153692" expanded="true" signature="1198:16956" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="1246:16954" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="2203:3251" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="3289:3466" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="3540:4528" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="3713:3925" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="4600:5140" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="4646:4801" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="4914:5106" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5214:5707" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5266:5703" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5339:5376" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5449:5486" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5555:5590" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5663:5698" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5778:6489" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5828:6485" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5901:5938" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6011:6049" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6118:6153" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6226:6262" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6331:6400" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6359:6394" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6443:6480" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6519:7237" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="7340:7605" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="7451:7601" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="7705:8069" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="7813:8065" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="8145:10336" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="9569:9816" ph="/* GL.DepthFunc(DepthFunction.Less); ... */" />
+            <marker date="1493659153692" expanded="true" signature="10368:13489" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="10839:12597" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="11208:11281" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="11351:11425" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="12118:12219" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="12245:12346" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="12370:12469" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="12493:12592" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="13311:13374" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="13527:13880" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="13573:13876" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="13909:16597" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="14226:14355" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="14292:14350" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="14536:14667" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="14602:14662" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="15068:15206" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="15569:15709" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="16156:16296" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="16601:16835" ph="/// Handles application shutdown procedures - terminating render threads, cleaning ... " />
+            <marker date="1493659153692" expanded="true" signature="16900:16951" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GLWidgetTestGTK3/MainWindow.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6900">
+          <caret line="460" column="46" lean-forward="false" selection-start-line="460" selection-start-column="46" selection-end-line="460" selection-end-column="46" />
+          <folding>
+            <marker date="1493659153692" expanded="true" signature="0:786" ph="/* MainWindow.cs ... */" />
+            <marker date="1493659153692" expanded="true" signature="794:1170" ph="..." />
+            <marker date="1493659153692" expanded="true" signature="1198:16956" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="1246:16954" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="2203:3251" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="3289:3466" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="3540:4528" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="3713:3925" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="4600:5140" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="4646:4801" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="4914:5106" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5214:5707" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5266:5703" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5339:5376" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5449:5486" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5555:5590" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5663:5698" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5778:6489" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5828:6485" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5901:5938" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6011:6049" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6118:6153" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6226:6262" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6331:6400" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6359:6394" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6443:6480" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6519:7237" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="7340:7605" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="7451:7601" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="7705:8069" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="7813:8065" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="8145:10336" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="9569:9816" ph="/* GL.DepthFunc(DepthFunction.Less); ... */" />
+            <marker date="1493659153692" expanded="true" signature="10368:13489" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="10839:12597" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="11208:11281" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="11351:11425" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="12118:12219" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="12245:12346" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="12370:12469" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="12493:12592" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="13311:13374" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="13527:13880" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="13573:13876" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="13909:16597" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="14226:14355" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="14292:14350" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="14536:14667" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="14602:14662" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="15068:15206" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="15569:15709" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="16156:16296" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="16601:16835" ph="/// Handles application shutdown procedures - terminating render threads, cleaning ... " />
+            <marker date="1493659153692" expanded="true" signature="16900:16951" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GLWidgetTestGTK3/MainWindow.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6900">
+          <caret line="460" column="46" lean-forward="true" selection-start-line="460" selection-start-column="46" selection-end-line="460" selection-end-column="46" />
+          <folding>
+            <marker date="1493659153692" expanded="true" signature="0:786" ph="/* MainWindow.cs ... */" />
+            <marker date="1493659153692" expanded="true" signature="794:1170" ph="..." />
+            <marker date="1493659153692" expanded="true" signature="1198:16956" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="1246:16954" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="2203:3251" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="3289:3466" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="3540:4528" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="3713:3925" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="4600:5140" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="4646:4801" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="4914:5106" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5214:5707" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5266:5703" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5339:5376" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5449:5486" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5555:5590" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5663:5698" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5778:6489" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5828:6485" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="5901:5938" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6011:6049" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6118:6153" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6226:6262" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6331:6400" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6359:6394" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6443:6480" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="6519:7237" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="7340:7605" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="7451:7601" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="7705:8069" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="7813:8065" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="8145:10336" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="9569:9816" ph="/* GL.DepthFunc(DepthFunction.Less); ... */" />
+            <marker date="1493659153692" expanded="true" signature="10368:13489" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="10839:12597" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="11208:11281" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="11351:11425" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="12118:12219" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="12245:12346" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="12370:12469" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="12493:12592" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="13311:13374" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="13527:13880" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="13573:13876" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="13909:16597" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="14226:14355" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="14292:14350" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="14536:14667" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="14602:14662" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="15068:15206" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="15569:15709" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="16156:16296" ph="{...}" />
+            <marker date="1493659153692" expanded="true" signature="16601:16835" ph="/// Handles application shutdown procedures - terminating render threads, cleaning ... " />
+            <marker date="1493659153692" expanded="true" signature="16900:16951" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GLWidgetTestGTK3/MainWindow.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -610,8 +803,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GLWidgetTestGTK3/MainWindow.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-789">
-          <caret line="460" column="46" lean-forward="true" selection-start-line="460" selection-start-column="46" selection-end-line="460" selection-end-column="46" />
+        <state relative-caret-position="15">
+          <caret line="460" column="46" lean-forward="false" selection-start-line="460" selection-start-column="46" selection-end-line="460" selection-end-column="46" />
           <folding>
             <marker date="1493659153692" expanded="true" signature="0:786" ph="/* MainWindow.cs ... */" />
             <marker date="1493659153692" expanded="true" signature="794:1170" ph="..." />
