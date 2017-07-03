@@ -294,6 +294,8 @@ namespace GLWidgetTestGTK3
 
 		protected virtual void OnViewportInitialized(object sender, EventArgs e)
 		{
+			var version = GL.GetString(StringName.Version);
+
 			this.Scene = new Scene();
 
 			// Create the cube actor
